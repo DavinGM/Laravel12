@@ -1,0 +1,70 @@
+_____________________________
+|MVC (Model-View-Controller)| 
+
+MVC adalah sebuah pola desain arsitektur yang membagi kode aplikasi menjadi tiga bagian utama yang saling berhubungan:
+    Model (mengelola data dan logika bisnis),
+    View (menampilkan antarmuka pengguna),
+    Controller (mengatur alur kerja dan hubungan antara Model dan View).
+
+ Pola ini bertujuan memisahkan tanggung jawab untuk menciptakan kode yang lebih terstruktur, efisien, mudah dikelola, 
+ dan memudahkan pengujian serta pemeliharaan aplikasi web dan perangkat lunak lainnya. \
+
+
+________________________________
+| Peran Komponen-Komponen MVC  |
+
+Model:
+  Bagian ini bertanggung jawab untuk mengelola data,
+  mengambil data dari database, memanipulasinya,
+  dan menerapkan logika bisnis aplikasi. 
+View:
+  Komponen ini fokus pada tampilan data dan antarmuka pengguna (GUI).
+  View bertugas menyajikan informasi kepada pengguna berdasarkan data yang diberikan oleh Model. 
+Controller:
+  Controller berfungsi sebagai perantara yang mengontrol alur aplikasi.
+  Ia menerima permintaan dari pengguna, memprosesnya, dan kemudian memilih Model yang sesuai untuk mengambil data,
+  lalu memilih View yang tepat untuk menampilkan data tersebut. 
+
+
+
+
+__________________
+|Manfaat dari MVC|
+
+Struktur Kode yang Lebih Baik:
+  Dengan memisahkan kode menjadi tiga bagian,
+  aplikasi menjadi lebih terstruktur dan modular,
+  sehingga lebih mudah dipahami. 
+Efisiensi Pengembangan:
+  Berbagai bagian dapat dikembangkan secara paralel,
+  misalnya bagian backend (Model dan Controller) dikerjakan oleh satu tim,
+  sementara bagian frontend (View) dikerjakan oleh tim lain. 
+Kemudahan Pengujian:
+  Proses pengujian bisa dilakukan per bagian,
+  yang lebih mudah daripada menunggu seluruh aplikasi selesai. 
+Perawatan (Maintenance) yang Lebih Mudah:
+  Kesalahan (bug) lebih mudah ditemukan dan diperbaiki karena setiap komponen memiliki tanggung jawab yang jelas. 
+Fleksibilitas:
+  Memungkinkan perubahan pada tampilan (View) tanpa memengaruhi logika bisnis (Model), dan sebaliknya. 
+
+
+________________
+|Penggunaan MVC|
+
+Pola MVC banyak digunakan dalam framework pengembangan web populer seperti Laravel,
+ CodeIgniter, dan Symfony (PHP), serta dalam pengembangan aplikasi web dan mobile secara umum.
+
+____________
+|Kesimpulan|
+
+jadi MVC adalah sebuah metode yang bisa di terapkan di bebeagai bahasa  pemrogramana 
+dan MVC ini dai memisahkan antara tampilan data dan proses
+
+kemudian si MVC ini dia akan memisahkan nya menjadi MVC
+
+analogi nya bisa seperti ini
+mode = data
+Controller = Proses
+View = tampilan
+
+

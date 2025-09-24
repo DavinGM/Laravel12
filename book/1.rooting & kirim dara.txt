@@ -1,0 +1,66 @@
+rooting pada Laravel berfungsi sebagai pemberi arahan pada user yang ingin mengakases atau
+menampilkan suatu Halaman .tidak hanya halaman root berfungsi juga untuk mengrimkan suatu data
+ke dalam jalur yang di inginkan Perhatikan kode di bawah 
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+kode ini adalah barisan kode bawaan yang tertera pada folder📁 routes > web.php
+yang berfungsi sebagai penjalur 
+
+pembahasan detail nya
+
+the > .Route::
+syntaks ini adalah sebuah keyword yang berfungsi untuk memulai rooting 
+
+the > .get(  )
+syntaks Get adalah sebuah method untuk melakukan rooting method juga bisa berupa beberapa syntaks
+di mulai dari GET, POST, PUT / PACT, DELTE DLL
+
+the > .'/' function () {
+    return('welcome')
+}
+syntaks ini berfungsi untuk mengarah kan URL yang di masukan user ke dalam halaman yang di tuju
+semisal kan user memasukan pada URL halaman '/' maka user akan di arah kan ke halaman yang di tuju
+cara mengarah kan nya bagai mana? di bagian return('nama_halaman')dan juga URL Di mana? ada pada 
+'/nama_URL' di sini bisa juga untuk mengrimkan data semisal data yang di kirim kan berupa variabel dengan isi 
+menggunakan array
+
+
+Route::get('/halaman2', function () {
+    return view('halaman_2', ['nama' => 'Kina' ] );
+});
+
+pada root ini user memasukan pada URL '/halaman2' dan yang di arah kan ke user adalah
+halaman2 dengan syntaks => view('halaman2') sebari ingin mengrimkan data nama ke dalam halaman 2
+pada syntaks => ,['nama' => 'Kina'] pada syntaks ini sudah di definisikan bahwa ada Sebuah data dengan
+nama nama yang berisi data Kina ini juga sudah mendifisikan Variabel $nama karena pada dasarnya 
+ini adalah Array yang secara definisi pasti adalah Variabel
+
+cara menampilkan data pada halaman yang sudah terkirim data dari root
+adalah dengan cara buka halaman yang di tuju tadi halaman_2 yang di bebeda pada
+resources > View > halaman_2.Blade.php 
+
+di dalam nya kita bisa tampilkan data tersebut menggunakan variabel echo misal kan di dalma halaman_2
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+senang berkenalan dengan mu {{$nama}}
+
+</body>
+</html>
+
+di sini pasti sudah tampil data yang ingin di tampilkan
+
+
+
+

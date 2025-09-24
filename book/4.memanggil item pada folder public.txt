@@ -1,0 +1,17 @@
+folder public berfungsi untuk menyimpan beberapa asset tampilan bisa berupa 
+Css Js atau IMG dan lain lain cara menampilkan suatu item pada folder public adalah
+
+misalkan ingin menampilkan CSS dengan isi sebuah folder📁 CSS dan isi Style.css
+
+buka pada file php yang ingin di tampilkan misalkan welcome.Blade.php
+di dalam nya bisa panggil nama Folder beserta File css yang ingin di tampilkan dengan cara
+
+<link rel="stylesheet" href="{{ asset('CSS/style.css') }}"> atau
+<link rel="stylesheet" href="{{ asset('nama_folder/nama_file') }}">
+
+apa pun bisa di panggil ke public asalkan dengan syrat
+1.item yang ingin di tampilkan ada
+2.pastikan setiap pemanggilan item public wajib menggunakan {{  }}
+3. gunkan keyward asset('isi') sebagai kunci pemanggilan item pada public
+
+

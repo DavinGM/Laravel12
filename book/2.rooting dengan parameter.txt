@@ -1,0 +1,21 @@
+rooting dengan parameter
+
+rooting ini memungkin kan data di kirim lewar parameter dengan tujuan yang valid dan di 
+definisikan sebelum nya parameter nanti nya di gunkana sebagai penjalur data dari mana data itu berasal
+dan dikrimkan ke mana data tersebut Secara tersetrukrur dan terurut
+
+cara menggunakan parameter
+
+A.parameter dengan URL
+
+Route::get('/nama_URL/{isi_data1}/{isi_data2}', function ($isi_data1,$isi_data2) {
+    return "ini data 1 $isi_data1 <br>,
+            ini data 2 $isi_data2    ";
+});
+pada URL bisa di ketik ("nama_Laravel.test/nama_URL/isi data 1/ isi_data2")
+
+> parameter ini akan di isi lewar URL yang nanti nya akan di arah kan oleh function ke dalam return
+    untuk nilai nya di kembalikan sebagai Variabel
+
+b.
+

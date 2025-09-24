@@ -1,0 +1,23 @@
+mengirim data Array ke dalam File menggunakan compact
+semisal ada sebuah data di dalam route 
+
+$siswa = ["davin", "kina","rehan","jalal"];
+
+dan saya ingin menmapilkan nya di halaman1 
+
+pada route yang berisi data siswa tadi lihat bagian 
+return view('halaman1')
+
+di depan 'halaman1' tambah kan koma jadi
+return view('tampilan2',)
+dan tulis di depan sebuah koma tadi 
+return view('tampilan2',compact('siswa'));
+
+dan nanti data akan masuk ke dalam halaman1
+
+full nya kaya gini 
+
+Route::get('/halaman1', function () {
+    $siswa = ["davin", "kina","rehan","jala"];
+    return view('tampilan1', compact('siswa'));
+});

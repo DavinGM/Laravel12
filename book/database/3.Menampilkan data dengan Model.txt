@@ -1,0 +1,130 @@
+📒Laravel – Menampilkan Data dari Model ke View lewat jalur Routes   | 11/09/2025  (belum menggunakan controler)
+
+
+Dalam Laravel, menampilkan data ke View adalah proses mengambil data dari database melalui Model, 
+lalu mengirimkannya ke file View (HTML/Blade) agar bisa dilihat oleh user.
+
+Mudahnya, ini ibarat:
+
+ - Model = gudang penyimpanan data (database).
+ - Route = kurir yang mengambil barang dari gudang.
+ - View  = etalase toko tempat barang dipajang.
+
+Jadi alurnya 👇
+Database (tabel posts) → Model Post → Route → View → User lihat di browser.
+saya akan perktikan menggunakan contoh table post 
+
+
+|  Model posts |
+ 
+ 1.membuat models
+ 
+Model adalah representasi atau gambaran dari tabel database di Laravel.
+Misalnya kita punya tabel posts. Maka di sini Developer harus punya model Post.php.
+coba lihat code ini 👇
+
+<code>
+
+<?php
+
+namespace App\Models; 
+// alamat class Model, harus ada supaya Laravel tahu ini ada di folder App\Models
+
+use Illuminate\Database\Eloquent\Factories\HasFactory; 
+use Illuminate\Database\Eloquent\Model; 
+
+class Post extends Model
+{
+    use HasFactory; 
+    // dipakai untuk generate data dummy dengan Factory
+
+    protected $fillable = ['id', 'title', 'content']; 
+    // daftar field yang boleh diisi → ini penting untuk keamanan
+    // contoh field: title dan content
+
+    public $timestamps = true; 
+    // Laravel otomatis isi kolom created_at & updated_at
+}
+
+
+</code>
+
+di sini kita sudah tau bahwa models post di ini dia memiliki id titel dan content
+yang menjadi landasan data nya 
+jika kita ingin menampilkan sebuah data pada database yang sudah kita simpan dan 
+ada di models cara paling sederhana adalah lewat jalur Routes. kamu bisa buka web.php kamu
+
+
+2. mengirimkan data kedalam Routes
+kita sudah tau nih di sini kita akan mengirimkan data dari models ke Routes untuk di tampilkan
+maka kita perlu menanggil mode ini terlebih dahulu ke dalam Route kamu bisa menambah ini 
+di paling atas Routes kamu :
+
+<code>
+use App\Models\Post;
+</code>
+
+maksud dari syntaks di atas apa sih?
+jadi syntaks ini itu dia akan mengambil models dari folder app -> Models -> Posts 
+untuk di berikan kepada Route agar data nya bisa di akses oleh Routes itu sendiri
+bisa saja kamu pakai rumus seperti ini 
+
+<code>
+use App\Models\nama_models;
+</code>
+
+ketika ini sudah di buat artinya kamu bisa panggil data apapun yang ada di models
+
+3. menuliskan Logika pengiriman data ke View
+
+Setelah kita mimiliki data nya kita bisa membuat Rute baru misal di sini saya ingin 
+membuat Rute baru di mana user akan di tampilkan sebuah halaman yang isi nya ada data dari posts tadi
+kita bisa menuliskan 
+
+
+Route::get('/post', function () {
+
+
+$post = Post::all();
+                // ambil semua data dari tabel posts (SELECT * FROM posts) jadikan $post
+                // 1 Memanggil method statis `all()` pada class Model Post.
+                // 2 Menjalankan query ke database: "SELECT * FROM posts".
+                // 3 Mengembalikan hasil sebagai objek Illuminate\Database\Eloquent\Collection
+                //yang berisi item-item bertipe App\Models\Post (setiap item = instance Model). 
+        
+    return view('post', compact('post'));
+      //compact artinya kirim kan semua data post::all() ke halaman post
+
+});
+
+
+4.tampilkan data yang Rotes sudah kirim ke View
+
+
+karena tadi data yang di kirim kan sudah semua melalu compact dengan naam $post maka di sini 
+$post sudah beisi data dari database yang bisa kita gunakan di sini 
+buat File post.Blade.php di sana kamu bisa tuliskan ini 👇
+
+<code>
+/#  HTML #/
+<body>
+<h2>ini data post</h2>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+        </tr>
+        @foreach($post as $p)
+        //foreach ini artinya panggil semua data dan ubah ke nama alias
+        // jadi $post ubah ke nama alias $p
+        <tr>
+            <td>{{ $p->title }}</td>
+            <td>{{ $p->content }}</td>
+            //artinya nama alias dari post panggil isi yang ingin  di tampilkan titlle dan content
+        </tr>
+        @endforeach
+
+    </table>
+</body>
+</code>
+

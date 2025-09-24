@@ -1,0 +1,26 @@
+A.langkah membuat komponent
+komponent adalah Php artisan dari Blade yang berfungsi untuk menyimpan 
+beberapa komponent penting seperti style HTML dan lainya
+
+cara nya membuat component adalah 
+
+1.cuka Cmd bisa lewat Gitbash atau pada VsCode ketik ctrl + `
+2. ketikan ("php artisan make:component nama_component")
+
+3.buka folder 
+resources > View > component > nama_component
+di dalam file nama_component bisa di isi beberapa component HTML
+bisa berupa navbar atau yang lain nya yang bersihat berulang atau perlu di butuh kan 
+dan banyak
+
+
+B.cara menampilkan component
+
+buka folder
+> resources > View > nama_file
+klik pada nama_file yang ingin di tampilkan 
+di bagian komponent yang ingin di tampilkan ketik
+
+<x-nama_component> <x-nama_component>
+
+dan component sudah ada di sana

@@ -1,0 +1,18 @@
+
+CLI
+
+Apa Itu CLI? Pengertian CLI dan Fungsinya
+CLI adalah singkatan dari Command Line Interface (Antarmuka Baris Perintah), sebuah antarmuka berbasis teks
+di mana pengguna berinteraksi dengan sistem operasi atau perangkat lunak dengan mengetikkan perintah untuk
+menjalankan berbagai tugas. CLI berfungsi dengan bantuan "shell" atau "kolom perintah" dan berbeda dari Graphical User Interface (GUI)
+yang menggunakan ikon dan menu grafis, menawarkan kontrol yang lebih presisi, efisiensi, dan kemampuan untuk otomatisasi
+tugas yang berulang.
+
+Cara Kerja CLI
+
+1. Pengguna Mengetik Perintah:
+    Pengguna membuka Command Prompt (di Windows) atau Terminal (di Mac/Linux) dan mengetikkan perintah teks. 
+2. Perintah Dieksekusi:
+    Shell (program perantara antara sistem operasi dan pengguna) menerjemahkan perintah tersebut dan memberikannya ke sistem operasi untuk dieksekusi. 
+3. Output Teks Diberikan:
+    Sistem kemudian memberikan respons atau hasil dari perintah dalam bentuk teks. 
