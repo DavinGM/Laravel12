@@ -49,7 +49,7 @@
                     <td>{{ $c->stock }}</td>
                     <td>
                         <a href="{{ url('/product/edit/'.$c->id) }}" class="btn btn-edit btn-sm mb-1">Update</a>
-                        <form action="{{ url('/product/'.$c->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin mau hapus produk ini? 😅')">
+                        <form action="{{ url('/product/'.$c->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin mau hapus produk {{ $c->name }} ini? 😅')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-del btn-sm">Hapus</button>

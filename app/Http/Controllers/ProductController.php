@@ -25,8 +25,8 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'deskpsi' => 'required',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
+            'price' => 'required',
+            'stock' => 'required',
         ]);
 
         product::create($request->all());
@@ -38,8 +38,8 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required',
             'deskpsi' => 'required',
-            'price' => 'required|numeric',
-            'stock' => 'required|integer',
+            'price' => 'required',
+            'stock' => 'required',
         ]);
 
         $crud = product::findOrFail($id);
