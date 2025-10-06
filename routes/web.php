@@ -65,7 +65,8 @@ Route::delete('/articles/{id}', [ArticleController::class, 'destroy']);
 // ╔══════════════════════════════════╗
 // ║ ||-- Posts url{/postaja} --||    ║
 // ╚══════════════════════════════════╝
-Route::get('/postaja', [PostsController::class, 'index']);
+// Route::get('/post', [PostsController::class, 'index']);
+Route::resource('post', PostsController::class);
 
 
 
@@ -295,7 +296,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/post', function () {
+// Route::get('/post', function () {
 
     // //menambahkan data
     // $post = new Post;
@@ -320,7 +321,7 @@ Route::get('/post', function () {
     // $post = Post::find(1);
     // $post->delete();
     // return $post;
-});
+// });
 
 
 
