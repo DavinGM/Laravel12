@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{{ asset('bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
 
 <style>
+    @import "tailwindcss";
 /* Custom tambahan biar tombol warna beda */
 .btn-del { background-color: #dc3545; color: #fff; }
 .btn-edit { background-color: #fd7e14; color: #fff; }
