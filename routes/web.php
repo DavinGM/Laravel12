@@ -4,8 +4,8 @@
 // use App\Models\siswa;
 use App\Models\biodata;                                //model Biodata
 use App\Http\Controllers\ArticleController;            //CTR Article
-use App\Http\Controllers\PostsController;              //CTR Posts
-use App\Http\Controllers\BioController;                //CTR Biodata
+use App\Http\Controllers\PostsController;               //CTR 
+use App\Http\Controllers\BioController;             //CTR Biodata
 use Illuminate\Support\Facades\Route;                  //CTR Product
 use App\Http\Controllers\ProductController;           
 
@@ -74,11 +74,9 @@ Route::resource('post', PostsController::class);
 // ║ ||-- Biodata url{/Bio} --||      ║
 // ╚══════════════════════════════════╝
 // CRUD full
-Route::get('/bio', [BioController::class, 'index']); // Tabel + tambah data
-Route::get('/bio/edit/{id}', [BioController::class, 'edit']); // Form update
-Route::post('/bio', [BioController::class, 'store']); // Create
-Route::put('/bio/{id}', [BioController::class, 'update']); // Update
-Route::delete('/bio/{id}', [BioController::class, 'des']); // Delete
+route::resource('/bio', BioController::class);
+    
+
 
 
 // ╔══════════════════════════════════╗
