@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -21,6 +22,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('telepon');
             $table->string('email')->unique();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

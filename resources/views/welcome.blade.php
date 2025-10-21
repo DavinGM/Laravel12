@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card Layout</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" type="image/x-icon">
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -132,8 +132,8 @@
 
         <!-- Card Grid -->
         <div class="card-container">
-            <div class="card">Menampilkan data nama Siswa dengan Route <a href="/halaman1">click here</a> </div>
-            <div class="card">Menampilkan data umur siswa dengan Route <a href="/halaman2">click here</a></div>
+            <div class="card">Sistem CRUD dengan Bio data <a href="/bio">click here</a> </div>
+            <div class="card">Sistem CRUD dengan Posts data <a href="/post">click here</a></div>
             <div class="card">Menampilkan data hobi siswa dengan Route <a href="/halaman3">click here</a></div>
             <div class="card">Menampilkan Sapaan Untuk Kina dengan Route <a href="/halaman4">click here</a></div>
             <div class="card">Menejemen Database Sederhana Dengan Controller <a href="{{ url('/articles') }}">Lihat Artikel</a></div>

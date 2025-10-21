@@ -7,15 +7,13 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.p
+     * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
-        $table->id();
-            $table->string('title')->unique();
-            $table->string('content');
-            $table->string('cover');
+        Schema::create('telepons', function (Blueprint $table) {
+            $table->id();
+            $table->string('nomor_telepon');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('telepons');
     }
 };

@@ -19,6 +19,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Content</th>
+                                <th scope="col">coper</th>
                                 <th scope="col">action</th>
                             </tr>
                         </thead>
@@ -29,6 +30,7 @@
                                 <th scope="row">{{ $no++ }} </th>
                                 <td>{{ $post->title }}</td> 
                                 <td>{{ $post->content }}</td>
+                                <td><img src="{{ asset('storage/' . $post->cover) }}" alt="Cover Image" style="width: 100px; height: auto;"></td>
                                 <td>
                                     <a class="btn btn-outline-primary w-20" href="{{ route( 'post.show', $post->id  ) }}">show</a>
                                     <a class="btn btn-outline-warning w-20" href=" {{ route( 'post.edit', $post->id ) }}">update</a>

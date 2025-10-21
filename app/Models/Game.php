@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class post extends Model
+class Game extends Model
 {
+    /** @use HasFactory<\Database\Factories\GameFactory> */
     use HasFactory;
 
-    // filed yang boleh diisi
-    protected $fillable = ['id', 'title', 'content','cover'];
+    protected $fillable = ['id', 'judul', 'deskripsi', 'harga', 'stok'];
     public $timestamps = true;
-
-    // we wok de tok not onle tok the tok
-
-    
 
 }

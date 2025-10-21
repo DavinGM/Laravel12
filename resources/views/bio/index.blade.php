@@ -7,6 +7,7 @@
 
 <!-- Bootstrap CSS Offline -->
 <link rel="stylesheet" href="{{ asset('bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
+<link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" type="image/x-icon">
 
 <style>
     @import "tailwindcss";
@@ -36,6 +37,7 @@
                     <th>Alamat</th>
                     <th>Telepon</th>
                     <th>Email</th>
+                    <th>Foto Profile</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -51,6 +53,7 @@
                     <td>{{ $b->alamat }}</td>
                     <td>{{ $b->telepon }}</td>
                     <td>{{ $b->email }}</td>
+                    <td><img src="{{ asset('storage/' . $b->foto) }}" alt="Foto" class="img-fluid" style="width: 100px;"></td>
                     <td>
                         <a href="{{ route('bio.edit', $b->id) }}" class="btn btn-edit btn-sm mb-1">Edit</a>
                         <a href="{{ route('bio.show', $b->id) }}" class="btn btn-primary btn-sm mb-1">Lihat</a>

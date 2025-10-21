@@ -7,9 +7,8 @@ use App\Http\Controllers\ArticleController;            //CTR Article
 use App\Http\Controllers\PostsController;               //CTR 
 use App\Http\Controllers\BioController;             //CTR Biodata
 use Illuminate\Support\Facades\Route;                  //CTR Product
-use App\Http\Controllers\ProductController;           
-
-
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RelasiController;
 
 // ╔══════════════════════════════════╗
 // ║ ||-- Welcome url{/welcome} --||  ║
@@ -90,6 +89,12 @@ Route::put('/product/{id}', [ProductController::class, 'update']); // Update
 Route::delete('/product/{id}', [ProductController::class, 'destroy']); // Delete
 
 
+// ╔═══════════════════════════════════════════╗
+// ║ ||-- One To One                  --||     ║
+// ╚═══════════════════════════════════════════╝
+
+Route::resource('pengguna', App\Http\Controllers\PenggunaController::class);
+Route::resource('games', App\Http\Controllers\GameController::class);
 
 // ╔═══════════════════════════════════════════╗
 // ║ ||-- Home after Login url{/home} --||     ║
@@ -99,6 +104,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
+// ╔═══════════════════════════════════════════╗
+// ║ ||-- Relasi Mahasiswa    {/home} --||     ║
+// ╚═══════════════════════════════════════════╝
+use App\Models\Wali;
+Route::get('/one-to-one', [App\Http\Controllers\RelasiController::class, 'OneToOne']);
+Route::get('/one-to-many', [RelasiController::class, 'OneToMany']);
+Route::get('/wali-ke-mahasiswa', function () {
+    $wali = Wali::with('mahasiswa')->first();
+    return "{$wali->nama} adalah wali dari {$wali->mahasiswa->nama}";
+});
 
 
 
@@ -138,6 +153,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
+
+
+// -- Pastikan rute ini ditempatkan di paling bawah berkas routes/web.php --
+// Rute fallback untuk menangani semua URL lainnya
+Route::fallback(function () {
+    return view('gak_ada');
+});
 
 // rotes utama 
 

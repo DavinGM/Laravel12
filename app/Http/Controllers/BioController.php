@@ -15,6 +15,8 @@ class BioController extends Controller
     {
         $bio = biodata::all();
         return view('Bio.index', compact('bio'));
+        // $bio;     
+        
 
         // bio.index di ambil dari folder 📁"bio" yang ada di file "index.blade.php"
     }
@@ -37,11 +39,28 @@ public function store(Request $request)
         'tempat_lahir' => 'required',
         'agama' => 'required',
         'alamat' => 'required',
-        'telepon' => 'required',
+        'telepon' => 'required|numeric',
         'email' => 'required|email',
+        'foto' => 'required|image|max:2048', // Maksimal ukuran 2MB
+        
     ]);
 
-    biodata::create($request->all());
+    $bio = new biodata();
+    $bio->nama_lengkap = $request->input('nama_lengkap');
+    $bio->jenis_kelamin = $request->input('jenis_kelamin');
+    $bio->tanggal_lahir = $request->input('tanggal_lahir');
+    $bio->tempat_lahir = $request->input('tempat_lahir');
+    $bio->agama = $request->input('agama');
+    $bio->alamat = $request->input('alamat');
+    $bio->telepon = $request->input('telepon');
+    $bio->email = $request->input('email');
+    $bio->foto = $request->input('foto');
+    if ($request->hasFile('foto')) {
+            $img = $request->file('foto');
+            $name = $img->getClientOriginalName(); 
+            $img->move('storage', $name);
+            $bio->foto = $name; }
+    $bio->save();
     session()->flash('success', 'Data Berhasil di Tambah mwhehe.');
     return redirect()->route('bio.index');
 }
@@ -69,7 +88,22 @@ public function update(Request $request, string $id)
     ]);
 
     $bio = biodata::findOrFail($id);
-    $bio->update($request->all());
+    $bio->nama_lengkap = $request->input('nama_lengkap');
+    $bio->jenis_kelamin = $request->input('jenis_kelamin');
+    $bio->tanggal_lahir = $request->input('tanggal_lahir');
+    $bio->tempat_lahir = $request->input('tempat_lahir');
+    $bio->agama = $request->input('agama');
+    $bio->alamat = $request->input('alamat');
+    $bio->telepon = $request->input('telepon');
+    $bio->email = $request->input('email');
+    $bio->foto = $request->input('foto');
+    if ($request->hasFile('foto')) {
+            $img = $request->file('foto');
+            $name = $img->getClientOriginalName();
+            $img->move('storage', $name);
+            $bio->foto = $name; }
+    $bio->save();
+
     session()->flash('success', 'Data Berhasil di Update mwhehe.');
     return redirect()->route('bio.index');
 }
