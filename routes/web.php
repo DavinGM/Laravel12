@@ -108,11 +108,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // ║ ||-- Relasi Mahasiswa    {/home} --||     ║
 // ╚═══════════════════════════════════════════╝
 use App\Models\Wali;
+use App\Models\hobi;
 Route::get('/one-to-one', [App\Http\Controllers\RelasiController::class, 'OneToOne']);
 Route::get('/one-to-many', [RelasiController::class, 'OneToMany']);
 Route::get('/wali-ke-mahasiswa', function () {
     $wali = Wali::with('mahasiswa')->first();
     return "{$wali->nama} adalah wali dari {$wali->mahasiswa->nama}";
+});
+Route::get('/many-to-many', [RelasiController::class, 'ManyToMany']);
+Route::get('/hobi/bola', function () {
+    $hobi = Hobi::where('nama_hobi', 'Bermain Bola')->first();
+    foreach ($hobi->mahasiswas as $mhs) {
+        echo $mhs->nama . '<br>';
+    }
 });
 
 

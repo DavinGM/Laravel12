@@ -12,16 +12,14 @@ return new class extends Migration
 public function up(): void
 {
     Schema::table('mahasiswas', function (Blueprint $table) {
-        $table->unsignedBigInteger('dosen_id');
-        $table->foreign('dosen_id')->references('id')->on('dosens')->onDelete('cascade');
+        $table->unsignedBigInteger('dosen_id')->nullable();
+        $table->foreign('dosen_id')->references('id')->on('dosens')->onDelete('set null');
     });
 }
 
 public function down(): void
 {
     Schema::table('mahasiswas', function (Blueprint $table) {
-        $table->dropForeign(['dosen_id']); // hapus foreign key dulu
-        $table->dropColumn('dosen_id');    // baru hapus kolom
     });
 }
 

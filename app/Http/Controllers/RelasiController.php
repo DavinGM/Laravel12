@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Mahasiswa;         // MDL Mahasiswa
 use App\Models\Wali;             // MDL Wali
 use App\Models\Dosen;            // MDL Dosen
+use App\Models\Hobi;             // MDL Hobi
 // data data dari Model ini di eksekusi di sini 
 
 
@@ -32,5 +33,10 @@ class RelasiController extends Controller
         // Ambil data Dosen beserta Mahasiswa pembimbingnya
         $dosens = Dosen::with('mahasiswas')->get();
         return view('relasi.one_to_many', compact('dosens'));
+    }
+
+    public function ManyToMany(){
+        $mahasiswas = Mahasiswa::with('hobis')->get();
+        return view('relasi.many-to-many', compact('mahasiswas'));
     }
 }

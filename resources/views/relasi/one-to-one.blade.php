@@ -12,7 +12,7 @@
                             <ul>
                                 <li>Nama : {{ $mhs->nama }}</li>
                                 <li>NIM : {{ $mhs->nim }}</li>
-                                <li>Wali : {{ $mhs->wali->nama }}</li>
+                                <li>Wali : {{ $mhs->wali->nama ?? "-" }}</li>
                             </ul>
                             <hr>
                         @endforeach

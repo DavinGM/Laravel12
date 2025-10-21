@@ -18,7 +18,12 @@ class Mahasiswa extends Model
         // dan foreign key di table walis adalah id_mahasiswa.
     }   
     public function dosen(){
+        // yang di milik oleh mahasiswa
         return $this->belongsTo(Dosen::class, 'id_dosen');
+    }
+
+    public function hobis(){
+        return $this->belongsToMany(Hobi::class, 'mahasiswa_hobi', 'mahasiswa_id', 'hobi_id');
     }
 
 
