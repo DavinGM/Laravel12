@@ -6,9 +6,18 @@ use App\Models\biodata;                                //model Biodata
 use App\Http\Controllers\ArticleController;            //CTR Article
 use App\Http\Controllers\PostsController;               //CTR 
 use App\Http\Controllers\BioController;             //CTR Biodata
+use App\Http\Controllers\MuridController;           //CTR Murid
 use Illuminate\Support\Facades\Route;                  //CTR Product
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RelasiController;
+use App\Http\Controllers\KelasController;
+
+// ╔═══════════════════════════════════════════╗
+// ║ ||-- Home after Login url{/home} --||     ║
+// ╚═══════════════════════════════════════════╝
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 // ╔══════════════════════════════════╗
 // ║ ||-- Welcome url{/welcome} --||  ║
@@ -92,15 +101,18 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy']); // Delete
 // ╔═══════════════════════════════════════════╗
 // ║ ||-- One To One                  --||     ║
 // ╚═══════════════════════════════════════════╝
-
 Route::resource('pengguna', App\Http\Controllers\PenggunaController::class);
 Route::resource('games', App\Http\Controllers\GameController::class);
+Route::resource('telepon', App\Http\Controllers\TeleponController::class);
 
 // ╔═══════════════════════════════════════════╗
-// ║ ||-- Home after Login url{/home} --||     ║
+// ║ ||-- One To Many                  --||    ║
 // ╚═══════════════════════════════════════════╝
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('murid', MuridController::class);
+Route::resource('kelas', KelasController::class);
+
+
+
 
 
 
@@ -122,6 +134,8 @@ Route::get('/hobi/bola', function () {
         echo $mhs->nama . '<br>';
     }
 });
+// GABUNGAN SEMUA 
+Route::get('eloquent', [RelasiController::class, 'eloquent']);
 
 
 

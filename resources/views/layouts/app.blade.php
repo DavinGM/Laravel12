@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS Offline -->
     <link rel="stylesheet" href="{{ asset('bootstrap-5.3.8-dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Optional: custom CSS -->
     <style>
         body { background-color: #f8f9fa; }
@@ -29,13 +30,9 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                     @else
-                        <li class="nav-item"><a class="nav-link" href="{{ url('/bio') }}">Biodata</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                               Logout
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                            
                         </li>
                     @endguest
                 </ul>

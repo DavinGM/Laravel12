@@ -134,7 +134,7 @@
         <div class="card-container">
             <div class="card">Sistem CRUD dengan Bio data <a href="/bio">click here</a> </div>
             <div class="card">Sistem CRUD dengan Posts data <a href="/post">click here</a></div>
-            <div class="card">Menampilkan data hobi siswa dengan Route <a href="/halaman3">click here</a></div>
+            <div class="card">Menampilkan data hobi siswa dengan Route <a href="/Sistem CRUD + Prelasian">click here</a></div>
             <div class="card">Menampilkan Sapaan Untuk Kina dengan Route <a href="/halaman4">click here</a></div>
             <div class="card">Menejemen Database Sederhana Dengan Controller <a href="{{ url('/articles') }}">Lihat Artikel</a></div>
             <div class="card">Tampilan 6</div>

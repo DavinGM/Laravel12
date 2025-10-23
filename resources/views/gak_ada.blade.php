@@ -38,7 +38,7 @@
 <body>
     <div class="content-container">
         <h1>Wah Halaman Yang Anda Cari gak ada</h1><img src="{{ asset('storage/keqing.png') }}" alt="">
-        <h3><a href="/">Kembali yuk</a></h3>
+        <h3><a href="/home">Kembali yuk</a></h3>
     </div>
 </body>
 </html>

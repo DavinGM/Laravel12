@@ -39,4 +39,18 @@ class RelasiController extends Controller
         $mahasiswas = Mahasiswa::with('hobis')->get();
         return view('relasi.many-to-many', compact('mahasiswas'));
     }
+
+
+
+
+
+
+
+    
+    // gabungan semua relasi
+    public function eloquent(){ 
+        $data_mahasiswa = Mahasiswa::with('wali', 'dosen', 'hobis',)->get();
+        return view('relasi.eloquent', compact('data_mahasiswa'));
+    }
+
 }
