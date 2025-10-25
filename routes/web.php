@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;                  //CTR Product
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RelasiController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\BarangController;               //CTR Barang
+use App\Http\Controllers\PembeliController;             //CTR Pembeli
+use App\Http\Controllers\TransaksiController;           //CTR Transaksi
 
 // ╔═══════════════════════════════════════════╗
 // ║ ||-- Home after Login url{/home} --||     ║
@@ -119,6 +122,8 @@ Route::resource('kelas', KelasController::class);
 // ╔═══════════════════════════════════════════╗
 // ║ ||-- Relasi Mahasiswa    {/home} --||     ║
 // ╚═══════════════════════════════════════════╝
+
+
 use App\Models\Wali;
 use App\Models\hobi;
 Route::get('/one-to-one', [App\Http\Controllers\RelasiController::class, 'OneToOne']);
@@ -141,15 +146,36 @@ Route::get('eloquent', [RelasiController::class, 'eloquent']);
 
 
 
+// ╔══════════════════════════════════╗
+// ║ ||-- Relasi Many to many url{/}  ║
+// ╚══════════════════════════════════╝
+
+Route::resource('barang', BarangController::class);
+Route::resource('pembeli', PembeliController::class);
+Route::resource('transaksi', TransaksiController::class);
 
 
 
 
+// ╔═══════════════════════════════════════════╗
+// ║ ||-- Riwayat Perubahan GIT    {/dash} --||║
+// ╚═══════════════════════════════════════════╝
+Route::get('/commit', [App\Http\Controllers\GitController::class, 'index'])->name('commit.history');
 
 
 
 
+Route::get('/tes-git', function () {
+    return shell_exec('git --version');
+});
 
+
+use Illuminate\Support\Facades\Http;
+
+Route::get('/tes-api', function () {
+    $response = Http::get('https://api.github.com/repos/DavinGM/project_Davin/commits');
+    return $response->json();
+});
 
 
 

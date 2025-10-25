@@ -251,6 +251,35 @@
                             </div>
                         </div>
 
+                                            <!-- Kartu 4: Proyek Aktif Saat Ini -->
+                        <div class="bg-white rounded-xl shadow-lg border-b-4 border-red-500 transition duration-300 hover:shadow-xl hover:shadow-red-200 overflow-hidden cursor-pointer">
+                            <!-- Gambar -->
+                            <img src="{{ asset('storage/murid.png') }} " 
+                                class="w-full h-28 object-cover" 
+                                alt="Gambar Proyek Aktif">
+                            
+                            <div class="p-4">
+                                <!-- Judul -->
+                                <h3 class="text-xl font-bold text-gray-900 mb-1">Sistem CRUD dengan Relasi Many To Many</h3>
+                                <!-- Desc -->
+                                <p class="text-sm text-gray-500">belajar membuat Relasi one to many dengan data Siswa dan kelas dari 0.</p>
+                                
+                                <!-- Tombol Klik -->
+                                <a href="/murid">
+                                    <button class="mt-3 text-sm font-semibold text-red-600 hover:text-red-800 flex items-center group">
+                                        lihat halaman
+                                        <i class="fas fa-arrow-right ml-2 text-xs transition duration-150 group-hover:translate-x-1"></i>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
                     </div>
                     
                     <div class="content-card">
